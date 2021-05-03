@@ -13,9 +13,10 @@ namespace DataStructure
             Console.WriteLine("-------Welcome To Data Structure Program-------");
 
             LinkedList list = new LinkedList();//creating object of linkedlist class
-            list.Add(56);
-            list.Add(30);
-            list.Add(70);
+            list.InsertLast(56);
+            list.InsertLast(30);
+            list.InsertLast(70);
+            list.Display();
 
             Console.Read();
         }
