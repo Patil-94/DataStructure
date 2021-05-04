@@ -19,7 +19,8 @@ namespace DataStructure
             list.InsertFront(30);
             list.InsertFront(56);
 
-            list.DeleteFirstNode();
+            list.DeleteLastNode();
+
             list.Display();
 
             Console.Read();
