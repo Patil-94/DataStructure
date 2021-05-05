@@ -6,28 +6,28 @@ using System.Threading.Tasks;
 
 namespace DataStructure
 {
-    class LinkedList
+   public class LinkedList
     {
 
         //Creating a node head, which will be pointing to the first element in linkedlist
         public Node head;
         public void InsertLast(int new_data)//creat method InserTlast 
         {
-            Node node = new Node(new_data);//Creating a object of node and adding data in node
+            Node new_node = new Node(new_data);//Creating a object of node and adding data in node
 
             //fills the first position in linkedlist, when head points to nothing
             if (this.head == null)
             {
-                this.head = node;
+                this.head = new_node;
             }
             else
             {
                 //get last node method is called to find out last node
 
                 Node lastNode = GetLastNode();
-                lastNode.next = node;
+                lastNode.next = new_node;
             }
-            Console.WriteLine("inserted into list" + node.data);
+            Console.WriteLine("inserted into list" + new_node.data);
 
         }
 
@@ -90,7 +90,31 @@ namespace DataStructure
             newNode.next = null;
             return newNode;
         }
-        internal void Display()
+
+        public bool Search(int input)
+        {
+            bool flag = false;
+            if (head == null)
+                Console.WriteLine("List is Empty");
+            else
+            {
+                Node temp = head;
+                while (temp != null)
+                {
+                    if (temp.data == input)
+                    {
+                        Console.WriteLine("The element is present");
+                        flag = true;
+                        break;
+                    }
+                    temp = temp.next;
+                }
+                if (!flag)
+                    Console.WriteLine("The Element is Absent");
+            }
+            return flag;
+        }
+            internal void Display()
         {
             //assigns head to 1st node.
             //temp becomes first node of linkedlist
