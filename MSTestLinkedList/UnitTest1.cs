@@ -8,16 +8,14 @@ namespace MSTestLinkedList
     public class UnitTest1
     {
         [TestMethod]
-        [DataRow(30, true)]
-        [DataRow(45, false)]
-        public void Search_PassNodeValue_ReturnTrueOrFalse(int data, bool flag)
+        public void WhenValuePresentInList_PassTheTest()
         {
-            LinkedList list = new LinkedList();
-            list.InsertFront(56);
-            list.InsertFront(30);
-            list.InsertFront(70);
-            bool flagReturned = list.Search(data);
-            Assert.AreEqual(flag, flagReturned);
+            LinkList linkList = new LinkList();
+            linkList.Add(56);
+            linkList.Add(30);
+            linkList.Add(70);
+            int output = linkList.findNodeWithValue(30);
+            Assert.AreEqual(2, output);
         }
     }
 }
