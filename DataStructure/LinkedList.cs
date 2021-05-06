@@ -9,151 +9,167 @@ namespace DataStructure
 
         public class LinkList
         {
-            internal Node head;
-            public void Add(int data)
+        internal Node head;
+        public void Add(int data)
+        {
+            Node newnode = new Node(data);
+            Node temp = head;
+            if (this.head == null)
             {
-                Node newnode = new Node(data);
-                Node temp = head;
-                if (this.head == null)
-                {
-                    this.head = newnode;
-                }
-                else
-                {
-                    while (temp.next != null)
-                    {
-                        temp = temp.next;
-                    }
-                    temp.next = newnode;
-
-                }
-                Console.WriteLine("{0} this value is added", newnode.data);
+                this.head = newnode;
             }
-
-            internal void Display()
+            else
             {
-                Node temp = this.head;
-                if (temp == null)
-                {
-                    Console.WriteLine("Empty Linked list");
-                    return;
-                }
-                while (temp != null)
-                {
-                    Console.Write(temp.data + " ");
-                    temp = temp.next;
-                }
-            }
-
-            /// <summary>
-            /// Insert 30 between 56 and 70
-            /// </summary>
-            /// <param name="position"></param>
-            /// <param name="data"></param>
-            internal void insertBetweenPosition(int position, int data)
-            {
-                if (position < 1)
-                {
-                    Console.WriteLine("Invalid Position");
-                }
-
-                if (position == 1)
-                {
-                    var newNode = new Node(data);
-                    newNode = this.head;
-                    head = newNode;
-                }
-                else
-                {
-                    while (position-- != 0)
-                    {
-                        if (position == 1)
-                        {
-                            Node node = new Node(data);
-                            node.next = this.head.next;
-                            head.next = node;
-                            break;
-                        }
-                        head = head.next;
-                    }
-                }
-                Console.WriteLine("\nHead is value" + head.data);
-            }
-
-            /// <summary>
-            /// Remove first element from linkedlist
-            /// </summary>
-            /// <returns></returns>
-            internal Node removeFirstNode()
-            {
-                if (head == null)
-                {
-                    return null;
-                }
-                this.head = this.head.next;
-                return this.head;
-            }
-            /// <summary>
-            /// Remove Last Element or Node
-            /// </summary>
-            internal Node removeLastNode()
-            {
-                Node temp = head;
-                Node prev = temp;
-                if (head == null)
-                {
-                    return head;
-                }
-                else
-                {
-                    if (temp.next.next == null)
-                    {
-                        temp.next = null;
-                    }
-                    temp = temp.next;
-                    return this.head;
-
-                }
-            }
-            /// <summary>
-            /// Search Node from Linkedlist
-            /// </summary>
-            /// <param name="value"></param>
-            public int findNodeWithValue(int value)
-            {
-                bool flag = true;
-                int count = 1;
-                Node temp = head;
-                while (flag)
-                {
-                    if (temp.data == value)
-                    {
-                        flag = false;
-                    }
-                    else
-                    {
-                        temp = temp.next;
-                        count++;
-                    }
-                }
-                return count;
-            }
-
-            internal void AddAfterAtPerticulatPosition(int data)
-            {
-                Node newnode = new Node(40);
-                Node temp = head;
-
                 while (temp.next != null)
                 {
-                    if (temp.data == data)
-                    {
-                        newnode.next = temp.next;
-                        temp.next = newnode;
-                    }
                     temp = temp.next;
                 }
-                Console.WriteLine("Given LinkedList = " + head.data);
+                temp.next = newnode;
+
+            }
+            Console.WriteLine("{0} this value is added", newnode.data);
+        }
+
+        internal void Display()
+        {
+            Node temp = this.head;
+            if (temp == null)
+            {
+                Console.WriteLine("Empty Linked list");
+                return;
+            }
+            while (temp != null)
+            {
+                Console.Write(temp.data + " ");
+                temp = temp.next;
             }
         }
+
+        /// <summary>
+        /// Insert 30 between 56 and 70
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="data"></param>
+        internal void insertBetweenPosition(int position, int data)
+        {
+            if (position < 1)
+            {
+                Console.WriteLine("Invalid Position");
+            }
+
+            if (position == 1)
+            {
+                var newNode = new Node(data);
+                newNode = this.head;
+                head = newNode;
+            }
+            else
+            {
+                while (position-- != 0)
+                {
+                    if (position == 1)
+                    {
+                        Node node = new Node(data);
+                        node.next = this.head.next;
+                        head.next = node;
+                        break;
+                    }
+                    head = head.next;
+                }
+            }
+            Console.WriteLine("\nHead is value" + head.data);
+        }
+
+        /// <summary>
+        /// Remove first element from linkedlist
+        /// </summary>
+        /// <returns></returns>
+        internal Node removeFirstNode()
+        {
+            if (head == null)
+            {
+                return null;
+            }
+            this.head = this.head.next;
+            return this.head;
+        }
+        /// <summary>
+        /// Remove Last Element or Node
+        /// </summary>
+        internal Node removeLastNode()
+        {
+            Node temp = head;
+            Node prev = temp;
+            if (head == null)
+            {
+                return head;
+            }
+            else
+            {
+                if (temp.next.next == null)
+                {
+                    temp.next = null;
+                }
+                temp = temp.next;
+                return this.head;
+
+            }
+        }
+        /// <summary>
+        /// Search Node from Linkedlist
+        /// </summary>
+        /// <param name="value"></param>
+        public int findNodeWithValue(int value)
+        {
+            bool flag = true;
+            int count = 1;
+            Node temp = head;
+            while (flag)
+            {
+                if (temp.data == value)
+                {
+                    flag = false;
+                }
+                else
+                {
+                    temp = temp.next;
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        internal void AddAfterAtPerticulatPosition(int data)
+        {
+            Node newnode = new Node(40);
+            Node temp = head;
+
+            while (temp.next != null)
+            {
+                if (temp.data == data)
+                {
+                    newnode.next = temp.next;
+                    temp.next = newnode;
+                }
+                temp = temp.next;
+            }
+        }
+
+        internal int deletePerticulatElement(int data)
+        {
+            Node temp = head;
+            int count = 1;
+            int position = 0;
+            while (temp.next != null)
+            {
+                if (temp.data == data)
+                {
+                    temp.next = temp.next.next;
+                }
+                temp = temp.next;
+                count++;
+            }
+            return count;
+        }
     }
+}
